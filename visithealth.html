@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visit Health Demo</title>
+    <link rel="icon" href="data:,">
+    
+    <!-- Content Security Policy to block unwanted resources -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https: data: blob:; connect-src 'self' https: wss:; img-src 'self' https: data: blob:; media-src 'self' https: data: blob:; object-src 'none'; base-uri 'self';">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NB0R7DHD44"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-NB0R7DHD44');
+    </script>
+    
+    <!-- Prevent external tracking and analytics -->
+    <script>
+        // Track page view
+        gtag('event', 'page_view', {
+            page_title: 'Visit Health Demo',
+            page_location: window.location.href,
+            event_category: 'Navigation',
+            event_label: 'Visit Health Demo'
+        });
+        
+        // Track time on page
+        const pageStartTime = Date.now();
+        window.addEventListener('beforeunload', function() {
+            const timeSpent = Math.round((Date.now() - pageStartTime) / 1000);
+            gtag('event', 'time_on_page', {
+                event_category: 'Engagement',
+                event_label: `${timeSpent}s`,
+                time_seconds: timeSpent,
+                page: 'Visit Health Demo',
+                value: Math.min(timeSpent / 60, 10)
+            });
+        });
+        
+        // Disable console warnings in production
+        if (typeof console !== 'undefined') {
+            const originalWarn = console.warn;
+            const originalError = console.error;
+            const originalLog = console.log;
+            
+            console.warn = function(...args) {
+                const message = args.join(' ');
+                // Filter out known harmless warnings
+                if (message.includes('React DevTools') || 
+                    message.includes('deprecated') || 
+                    message.includes('Player w/ mediaElement') ||
+                    message.includes('streaming.useNativeHlsOnSafari')) {
+                    return;
+                }
+                originalWarn.apply(console, args);
+            };
+            
+            console.error = function(...args) {
+                const message = args.join(' ');
+                // Filter out extension and external service errors
+                if (message.includes('chrome-extension') || 
+                    message.includes('sentry.io') ||
+                    message.includes('ERR_BLOCKED_BY_CLIENT') ||
+                    message.includes('No storage available')) {
+                    return;
+                }
+                originalError.apply(console, args);
+            };
+        }
+        
+        // Block external analytics and tracking
+        window.gtag = function() {};
+        window.dataLayer = window.dataLayer || [];
+        
+        // Prevent Sentry and other external services
+        window.__SENTRY__ = null;
+        window.Sentry = null;
+        
+        // Block session storage warnings
+        const originalSessionStorage = window.sessionStorage;
+        Object.defineProperty(window, 'sessionStorage', {
+            get: function() {
+                try {
+                    return originalSessionStorage;
+                } catch (e) {
+                    return {
+                        getItem: () => null,
+                        setItem: () => {},
+                        removeItem: () => {},
+                        clear: () => {},
+                        key: () => null,
+                        length: 0
+                    };
+                }
+            }
+        });
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: white;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 30px;
+        }
+
+        .hero-container h1 {
+            margin-bottom: 10px;
+        }
+
+        .hero-container p {
+            margin-top: 0;
+        }
+
+
+        .hidden {
+            display: none;
+        }
+
+        .theme-customizer {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            font-family: Arial, sans-serif;
+            z-index: 999998;
+            border: 1px solid #e0e0e0;
+        }
+
+        .theme-customizer label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 12px;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .theme-customizer input[type="color"] {
+            width: 50px;
+            height: 30px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+        }
+
+        .theme-customizer .preview-label {
+            font-size: 10px;
+            color: #999;
+            margin-top: 5px;
+        }
+
+        /* Mobile optimization */
+        @media (max-width: 768px) {
+            body {
+                padding: 40px 20px;
+            }
+
+
+            .theme-customizer {
+                top: 10px;
+                right: 10px;
+                padding: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 30px 15px;
+            }
+            
+            .hero-container h1 {
+                font-size: 2rem !important;
+            }
+            
+            .hero-container p {
+                font-size: 1rem !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-container">
+        <div>
+            <h1 style="color: #333; font-size: 2.5rem; font-weight: 600;">Visit Health AI SDR Demo</h1>
+        </div>
+    </div>
+
+    <!-- Theme Customizer -->
+    <div class="theme-customizer">
+        <label for="colorPicker">Widget Color:</label>
+        <input type="color" id="colorPicker" value="#0F766E">
+        <div class="preview-label">Live Preview</div>
+    </div>
+
+    <!-- Visit Health Widget Theme -->
+    <script>
+        // Initialize widget theme
+        window.VisitHealthWidgetTheme = {
+            baseColor: '#0F766E',    
+        };
+
+
+        // Enhanced color updater with error handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const colorPicker = document.getElementById('colorPicker');
+            if (!colorPicker) return;
+            
+            colorPicker.addEventListener('input', function(e) {
+                try {
+                    const newColor = e.target.value;
+                    if (!newColor || !newColor.match(/^#[0-9A-F]{6}$/i)) return;
+                    
+                    window.VisitHealthWidgetTheme.baseColor = newColor;
+                    
+                    // Update widget theme dynamically
+                    updateWidgetTheme(newColor);
+                    
+                    // Track theme color change
+                    gtag('event', 'theme_color_change', {
+                        event_category: 'Feature',
+                        event_label: newColor,
+                        color_value: newColor,
+                        page: 'Visit Health Demo',
+                        value: 1
+                    });
+                } catch (error) {
+                    console.warn('Color update failed:', error);
+                }
+            });
+        });
+
+        function updateWidgetTheme(newColor) {
+            try {
+                // Method 1: Direct CSS variables
+                document.documentElement.style.setProperty('--visithealth-primary', newColor);
+                document.documentElement.style.setProperty('--visithealth-base-color', newColor);
+                
+                // Method 2: Shadow DOM approach
+                const widgetHost = document.getElementById('visithealth-widget-host');
+                if (widgetHost && widgetHost.shadowRoot) {
+                    const shadowRoot = widgetHost.shadowRoot;
+                    let styleElement = shadowRoot.querySelector('#dynamic-theme');
+                    
+                    if (!styleElement) {
+                        styleElement = document.createElement('style');
+                        styleElement.id = 'dynamic-theme';
+                        shadowRoot.appendChild(styleElement);
+                    }
+                    
+                    styleElement.textContent = `
+                        :host, :root {
+                            --visithealth-base-color: ${newColor} !important;
+                            --visithealth-primary: ${newColor} !important;
+                            --visithealth-primary-hover: color-mix(in srgb, ${newColor} 85%, black 15%) !important;
+                            --visithealth-primary-light: color-mix(in srgb, ${newColor} 12%, white 88%) !important;
+                            --visithealth-primary-border: color-mix(in srgb, ${newColor} 45%, white 55%) !important;
+                        }
+                    `;
+                }
+                
+                // Method 3: Global style injection
+                let globalStyle = document.getElementById('global-widget-theme');
+                if (!globalStyle) {
+                    globalStyle = document.createElement('style');
+                    globalStyle.id = 'global-widget-theme';
+                    document.head.appendChild(globalStyle);
+                }
+                
+                globalStyle.textContent = `
+                    :root {
+                        --visithealth-base-color: ${newColor} !important;
+                        --visithealth-primary: ${newColor} !important;
+                        --visithealth-primary-hover: color-mix(in srgb, ${newColor} 85%, black 15%) !important;
+                        --visithealth-primary-light: color-mix(in srgb, ${newColor} 12%, white 88%) !important;
+                        --visithealth-primary-border: color-mix(in srgb, ${newColor} 45%, white 55%) !important;
+                    }
+                `;
+                
+            } catch (error) {
+                console.warn('Widget theme update failed:', error);
+            }
+        }
+
+        // Prevent external errors from showing
+        window.addEventListener('error', function(e) {
+            if (e.filename && (
+                e.filename.includes('chrome-extension') ||
+                e.filename.includes('sentry.io') ||
+                e.filename.includes('vendor-') ||
+                e.message.includes('No storage available')
+            )) {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        // Suppress unhandled promise rejections from external sources
+        window.addEventListener('unhandledrejection', function(e) {
+            if (e.reason && typeof e.reason === 'string' && (
+                e.reason.includes('chrome-extension') ||
+                e.reason.includes('sentry.io') ||
+                e.reason.includes('ERR_BLOCKED_BY_CLIENT')
+            )) {
+                e.preventDefault();
+                return false;
+            }
+        });
+    </script>
+    
+    <!-- Visit Health Widget -->
+    <script src="https://visithealth-frontend-419472898266.us-central1.run.app/visithealth-widget-loader.js" defer></script>
+</body>
+</html>

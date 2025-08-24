@@ -1,0 +1,65 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#FBF8F3"/>
+  
+  <!-- Live pilot badge -->
+  <g transform="translate(900, 60)">
+    <rect x="0" y="0" width="240" height="48" rx="24" fill="white" filter="url(#shadow)"/>
+    <circle cx="24" cy="24" r="6" fill="#f59e0b"/>
+    <text x="40" y="30" font-family="Inter, system-ui, sans-serif" font-size="18" fill="#64748b">Live pilot in three days</text>
+  </g>
+  
+  <!-- Logo -->
+  <g transform="translate(540, 180)">
+    <rect width="120" height="120" rx="24" fill="url(#gradient)" filter="url(#logoShadow)"/>
+    <path d="M40 80L60 40l20 40" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M40 80V50M80 80V50" stroke="#fff" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="85" cy="35" r="7.5" fill="#f59e0b"/>
+  </g>
+  
+  <!-- Title -->
+  <text x="600" y="380" font-family="Inter, system-ui, sans-serif" font-size="64" font-weight="600" text-anchor="middle" fill="#0F172A">
+    Turn website traffic into
+  </text>
+  <text x="600" y="450" font-family="Inter, system-ui, sans-serif" font-size="64" font-weight="600" text-anchor="middle" fill="#0F766E">
+    booked demos
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="600" y="520" font-family="Inter, system-ui, sans-serif" font-size="26" text-anchor="middle" fill="#64748b">
+    AI SDR that qualifies buyers, shows real availability,
+  </text>
+  <text x="600" y="555" font-family="Inter, system-ui, sans-serif" font-size="26" text-anchor="middle" fill="#64748b">
+    and books straight to your team's calendars.
+  </text>
+  
+  <!-- Definitions -->
+  <defs>
+    <linearGradient id="gradient" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#0F766E"/>
+      <stop offset="1" stop-color="#0b5e58"/>
+    </linearGradient>
+    
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="8"/>
+      <feOffset dx="0" dy="4" result="offsetblur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.08"/>
+      <feComposite in2="offsetblur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="logoShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="16"/>
+      <feOffset dx="0" dy="8" result="offsetblur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.12"/>
+      <feComposite in2="offsetblur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+</svg>
