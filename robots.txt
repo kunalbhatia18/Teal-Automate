@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Block crawling of demo pages
+Disallow: /visithealth/
+
+# Allow crawling of main pages
+Allow: /privacy
+Allow: /terms
+
+Sitemap: https://automatemeetings.com/sitemap.xml

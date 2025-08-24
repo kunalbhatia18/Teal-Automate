@@ -1,0 +1,1162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AutomateMeetings — AI SDR that works with any CRM</title>
+  <meta name="description" content="Always on AI SDR that engages visitors, qualifies by your ICP and books meetings from chat and email. Works with any CRM and we run weekly experiments to optimise conversion." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%230F766E'/%3E%3Cstop offset='1' stop-color='%230b5e58'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='url(%23g)'/%3E%3Cpath d='M16 32L24 16l8 16' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Cpath d='M16 32V20M32 32V20' stroke='white' stroke-width='3.2' stroke-linecap='round'/%3E%3Ccircle cx='34' cy='14' r='3' fill='%23f59e0b'/%3E%3C/svg%3E" />
+  <meta name="theme-color" content="#FBF8F3">
+  
+  <!-- SEO Meta Tags -->
+  <link rel="canonical" href="https://automatemeetings.com/" />
+  <meta property="og:title" content="AutomateMeetings — AI SDR for always-on pipeline" />
+  <meta property="og:description" content="Engage, qualify, and book across chat and email. Works with any CRM. We handle everything end-to-end." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://automatemeetings.com/og-image.svg" />
+  <meta property="og:url" content="https://automatemeetings.com/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AutomateMeetings — AI SDR for always-on pipeline" />
+  <meta name="twitter:description" content="24/7 buyer engagement, ICP qualification, instant booking, and weekly experiments. Any CRM." />
+  <meta name="twitter:image" content="https://automatemeetings.com/og-image.svg" />
+  <style>
+    :root{
+      /* Warm + trustworthy palette */
+      --bg: #FBF8F3;          /* warm ivory */
+      --surface: #FFFFFF;     /* cards */
+      --ink: #0F172A;         /* navy/ink */
+      --muted: #475569;       /* slate */
+      --primary: #0F766E;     /* teal 700 (trust) */
+      --primary-dark: #0b5e58;
+      --accent: #F59E0B;      /* amber 500 (warmth) */
+      --line: #E5E7EB;        /* soft borders */
+      --success: #059669;     /* signal green */
+      --teal-50: #f0fdfa;
+      --gray-light: #6B7280;
+      --gray-lighter: #9CA3AF;
+      --rose-400: #fb7185;
+      --amber-400: #fbbf24;
+      --emerald-600: #059669;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} .logos-track{animation:none} }
+    body{
+      margin:0; 
+      font-family: Inter, system-ui, -apple-system, sans-serif;
+      color:var(--ink); 
+      background:var(--bg);
+      -webkit-font-smoothing:antialiased;
+    }
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; height:auto; display:block}
+    
+    /* Decorative background */
+    .decor{
+      position:fixed; inset:0; z-index:-1;
+      pointer-events:none; overflow:hidden;
+    }
+    .decor-circle-1{
+      position:absolute; top:-96px; left:-96px;
+      width:288px; height:288px; border-radius:50%;
+      background:rgba(20,184,166,0.3); filter:blur(60px);
+    }
+    .decor-circle-2{
+      position:absolute; bottom:-96px; right:-96px;
+      width:288px; height:288px; border-radius:50%;
+      background:rgba(245,158,11,0.4); filter:blur(60px);
+    }
+    
+    /* Layout */
+    .container{max-width:1280px; margin:0 auto; padding:0 24px}
+    .section{padding:64px 0 80px; scroll-margin-top:64px}
+    
+    /* Header */
+    .header{ 
+      position:sticky; top:0; z-index:40;
+      backdrop-filter:saturate(140%) blur(10px);
+      background:rgba(251,248,243,0.7);
+      border-bottom:1px solid rgba(229,231,235,0.6);
+    }
+    .header-inner{ 
+      display:flex; align-items:center; justify-content:space-between;
+      height:72px;
+    }
+    .logo{
+      display:flex; align-items:center; gap:8px;
+    }
+    .logo-icon{
+      width:32px; height:32px; border-radius:12px;
+      display:block; box-shadow:0 1px 3px rgba(0,0,0,0.12);
+    }
+    .logo-text{
+      font-family:Manrope, Inter; font-weight:700;
+      font-size:18px; letter-spacing:0.2px;
+    }
+    .nav{
+      display:none; align-items:center; gap:28px;
+    }
+    .nav a{
+      color:var(--muted); font-weight:500; font-size:14px;
+    }
+    .nav a:hover{
+      color:var(--primary);
+    }
+    .nav-cta{
+      display:none; gap:12px; align-items:center;
+    }
+    
+    /* Buttons */
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:8px; padding:12px 16px; border-radius:12px;
+      font-weight:600; font-size:14px; transition:all .2s;
+      cursor:pointer; border:none;
+    }
+    .btn-primary{
+      background:var(--primary); color:white;
+      box-shadow:0 4px 12px rgba(15,118,110,0.15);
+    }
+    .btn-primary:hover{
+      background:var(--primary-dark);
+      transform:translateY(-1px);
+    }
+    .btn:active{
+      transform:translateY(0);
+    }
+    .btn-secondary{
+      background:transparent; color:var(--ink);
+      border:1px solid var(--line);
+    }
+    .btn-secondary:hover{
+      background:rgba(0,0,0,0.05);
+      box-shadow:0 2px 8px rgba(0,0,0,0.06);
+    }
+    
+    /* Hero */
+    .hero{
+      padding:80px 0 56px;
+    }
+    .hero-grid{
+      display:grid; grid-template-columns:1.1fr 0.9fr;
+      gap:40px; align-items:center;
+    }
+    .eyebrow{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px; border-radius:999px;
+      border:1px solid var(--line); color:var(--muted);
+      background:white; font-weight:600; font-size:14px;
+    }
+    .dot{
+      width:8px; height:8px; border-radius:50%;
+      background:var(--success);
+    }
+    h1{
+      font-family:Manrope, Inter; font-size:48px;
+      line-height:1.08; margin:18px 0 14px;
+      letter-spacing:-0.5px;
+    }
+    .text-blue{
+      color:var(--primary);
+    }
+    .lead{
+      color:var(--muted); font-size:18px;
+      line-height:1.6; max-width:520px;
+    }
+    .hero-cta{
+      display:flex; gap:12px; margin-top:32px;
+      flex-wrap:wrap;
+    }
+    .features-list{
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:12px; margin-top:24px;
+      font-size:14px; color:var(--muted);
+      list-style:none; padding:0;
+    }
+    .features-list li{
+      display:flex; align-items:center; gap:8px;
+    }
+    .note{ font-size:12px; color:var(--muted); margin-top:12px; }
+    
+    /* Widget Mock */
+    .widget-mock{
+      position:relative; border-radius:24px;
+      border:1px solid var(--line); background:white;
+      padding:16px; box-shadow:0 20px 40px rgba(15,118,110,0.1);
+    }
+    .google-badge{
+      position:absolute; top:-12px; left:20px;
+      display:flex; align-items:center; gap:6px;
+      background:white; padding:5px 12px 5px 8px;
+      border-radius:20px; border:1px solid rgba(0,0,0,0.05);
+      box-shadow:0 2px 8px rgba(0,0,0,0.08);
+      font-size:12px; color:var(--muted); z-index:10;
+    }
+    .google-badge img{
+      height:16px; width:auto;
+    }
+    .widget-inner{
+      border-radius:16px; padding:16px;
+      background:linear-gradient(135deg, var(--teal-50), white);
+      border:1px solid var(--line);
+    }
+    .widget-header{
+      display:flex; align-items:center;
+      justify-content:space-between; margin-bottom:24px;
+    }
+    .widget-brand{
+      display:flex; align-items:center; gap:12px;
+    }
+    .widget-logo{
+      width:40px; height:40px; border-radius:12px;
+    }
+    .widget-title{
+      font-weight:600; font-size:14px;
+    }
+    .widget-subtitle{
+      font-size:12px; color:var(--gray-light);
+    }
+    .badge{
+      display:inline-flex; align-items:center;
+      padding:4px 12px; border-radius:999px;
+      border:1px solid rgba(15,118,110,0.2);
+      background:rgba(15,118,110,0.1);
+      font-size:12px; color:var(--primary);
+    }
+    .chat-msg{
+      display:flex; align-items:flex-start; gap:12px;
+      padding:12px; border-radius:12px;
+      border:1px solid rgba(15,118,110,0.1);
+      background:white; margin-bottom:12px;
+    }
+    .icon{
+      width:20px; height:20px; stroke:currentColor; stroke-width:2; fill:none;
+    }
+    .icon-sm{width:16px; height:16px}
+    .chat-icon{
+      flex-shrink:0; margin-top:1px;
+    }
+    .chat-text{
+      font-size:14px; color:var(--ink);
+    }
+    
+    /* Logos */
+    .logos-strip{
+      padding:32px 0; background:rgba(255,255,255,0.6);
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+    }
+    .logos-inner{
+      display:flex; align-items:center; gap:24px;
+      overflow:hidden;
+    }
+    .logos-label{
+      font-size:14px; color:var(--gray-light);
+      white-space:nowrap; flex-shrink:0;
+    }
+    .logos-track-wrap{
+      flex:1; overflow:hidden; position:relative;
+    }
+    .logos-track{
+      display:flex; gap:40px;
+      animation:marquee 28s linear infinite;
+    }
+    .logos-track-wrap:hover .logos-track{
+      animation-play-state: paused;
+    }
+    .industry-pill{
+      padding:8px 16px; border-radius:999px;
+      background:rgba(0,0,0,0.03); font-size:14px;
+      color:var(--muted); white-space:nowrap;
+    }
+    @keyframes marquee{
+      0%{transform:translateX(0)}
+      100%{transform:translateX(-50%)}
+    }
+    
+    /* Product */
+    .product-grid{
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:64px; align-items:center;
+      margin-top:48px;
+    }
+    h2{
+      font-family:Manrope; font-size:36px;
+      margin:0 0 10px;
+    }
+    .text-muted{
+      color:var(--muted); font-size:16px;
+    }
+    .check-list{
+      list-style:none; padding:0; margin:24px 0;
+    }
+    .check-list li{
+      display:flex; align-items:flex-start; gap:12px;
+      margin-bottom:12px; color:var(--muted);
+    }
+    .check-icon{
+      width:20px; height:20px; color:var(--success);
+      margin-top:2px; flex-shrink:0;
+    }
+    
+    /* Browser Mock */
+    .browser-mock{
+      border-radius:24px; border:1px solid rgba(0,0,0,0.05);
+      background:white; padding:16px;
+      box-shadow:0 20px 40px rgba(0,0,0,0.1);
+    }
+    .browser-inner{
+      border-radius:16px; background:linear-gradient(180deg, #f8fafc, white);
+      border:1px solid rgba(0,0,0,0.05);
+    }
+    .browser-bar{
+      display:flex; align-items:center; gap:8px;
+      padding:8px 16px; border-bottom:1px solid rgba(0,0,0,0.05);
+    }
+    .browser-dot{
+      width:10px; height:10px; border-radius:50%;
+    }
+    .browser-content{
+      padding:16px;
+    }
+    .browser-url{
+      flex:1; height:24px; border-radius:6px;
+      background:rgba(0,0,0,0.05); margin-left:12px;
+    }
+    
+    /* Steps */
+    .steps{
+      display:grid; grid-template-columns:repeat(4, 1fr);
+      gap:18px; margin-top:18px;
+    }
+    .step{
+      position:relative; padding:24px;
+      border-radius:16px; background:white;
+      border:1px solid var(--line);
+      box-shadow:0 1px 3px rgba(0,0,0,0.06);
+    }
+    .step b{
+      font-family:Manrope;
+    }
+    .step p{
+      color:var(--muted); font-size:14px;
+      margin-top:4px;
+    }
+    
+    /* Stats */
+    .stats-grid{
+      display:grid; grid-template-columns:repeat(4, 1fr);
+      gap:16px; margin-top:48px;
+    }
+    .stat-card{
+      padding:24px; border-radius:16px;
+      background:white; border:1px solid var(--line);
+      box-shadow:0 1px 3px rgba(0,0,0,0.06);
+    }
+    .stat-value{
+      font-size:32px; font-weight:600;
+      color:var(--primary);
+    }
+    .stat-label{
+      font-size:14px; margin-top:4px;
+    }
+    .stat-note{
+      font-size:12px; color:var(--gray-light);
+      margin-top:8px;
+    }
+    
+    /* Quotes */
+    .quotes-grid{
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:16px; margin-top:48px;
+    }
+    .quote{
+      padding:24px; border-radius:16px;
+      background:white; border:1px solid var(--line);
+      box-shadow:0 1px 3px rgba(0,0,0,0.06);
+    }
+    .quote-text{
+      font-size:16px; line-height:1.6;
+      color:#111827; margin:0 0 20px 0;
+    }
+    .quote-author{
+      font-size:14px; color:var(--gray-light);
+      margin:0; text-align:right;
+    }
+    
+    /* Trust */
+    .trust-section{ 
+      background:rgba(255,255,255,0.7); 
+      border-top:1px solid var(--line); 
+      border-bottom:1px solid var(--line); 
+    }
+    .trust-grid{
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:48px; align-items:center;
+    }
+    .trust-list{
+      list-style:none; padding:0; margin:24px 0;
+    }
+    .trust-list li{
+      display:flex; align-items:flex-start; gap:12px;
+      margin-bottom:12px; color:var(--muted);
+    }
+    .shield-icon{
+      width:20px; height:20px; color:var(--primary);
+      margin-top:2px; flex-shrink:0;
+    }
+    .trust-stats{
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:16px;
+    }
+    .trust-stat{
+      padding:20px; border-radius:16px;
+      background:white; border:1px solid var(--line);
+      box-shadow:0 1px 3px rgba(0,0,0,0.06);
+    }
+    .trust-label{
+      font-size:14px; color:var(--gray-light);
+    }
+    .trust-value{
+      font-size:36px; font-weight:600;
+      color:var(--primary); margin:8px 0;
+    }
+    .progress-bar{
+      height:8px; border-radius:4px;
+      background:rgba(0,0,0,0.05); overflow:hidden;
+      margin-top:16px;
+    }
+    .progress-fill{
+      height:100%; width:96%;
+      background:linear-gradient(90deg, #14b8a6, #10b981);
+    }
+    
+    /* Integrations */
+    .integrations-grid{
+      display:grid; grid-template-columns:repeat(6, 1fr);
+      gap:16px; margin-top:32px;
+    }
+    .integration{
+      padding:16px; border-radius:16px;
+      background:white; border:1px solid var(--line);
+      box-shadow:0 1px 3px rgba(0,0,0,0.06);
+      text-align:center;
+    }
+    .integration-icon{
+      width:32px; height:32px; border-radius:8px;
+      margin:0 auto 12px; display:block; object-fit:contain;
+    }
+    .integration-name{
+      font-size:14px;
+    }
+    
+    /* CTA */
+    .cta-section{
+      background:linear-gradient(180deg, #FFFFFF 0%, #F7F4EE 100%);
+      border-top:1px solid var(--line);
+      padding:64px 0; text-align:center;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px; border-radius:999px;
+      border:1px solid var(--line); background:white;
+      font-size:14px; color:var(--muted);
+    }
+    .cta-section h2{
+      margin:10px 0 8px;
+    }
+    .cta-buttons{
+      display:flex; gap:12px; justify-content:center;
+      margin-top:24px;
+    }
+    
+    /* FAQ */
+    .faq{
+      display:grid; gap:12px; margin-top:12px;
+    }
+    details{
+      background:white; border:1px solid var(--line);
+      border-radius:12px; padding:16px 18px;
+      box-shadow:0 1px 3px rgba(0,0,0,0.06);
+    }
+    summary{
+      cursor:pointer; font-weight:700;
+      font-family:Manrope;
+    }
+    details p{
+      margin-top:12px; color:var(--muted);
+    }
+    
+    /* Footer */
+    .footer{
+      border-top:1px solid var(--line); background:rgba(255,255,255,0.6);
+      padding:40px 0; color:var(--muted);
+    }
+    .footer-grid{
+      display:grid; grid-template-columns:repeat(4, 1fr);
+      gap:32px; margin-bottom:32px;
+    }
+    .footer-section h4{
+      font-size:14px; font-weight:600; margin:0 0 12px;
+      color:var(--ink);
+    }
+    .footer-links{
+      list-style:none; padding:0; margin:0;
+    }
+    .footer-links li{
+      margin-bottom:8px;
+    }
+    .footer-links a{
+      font-size:14px; color:var(--muted);
+      transition:color .2s;
+    }
+    .footer-links a:hover{
+      color:var(--primary);
+    }
+    .footer-desc{
+      font-size:14px; color:var(--muted); line-height:1.6;
+      margin-top:12px;
+    }
+    .footer-bottom{
+      display:flex; justify-content:space-between; align-items:center;
+      padding-top:24px; border-top:1px solid var(--line);
+      font-size:12px; color:var(--gray-light);
+    }
+    .footer-legal{
+      display:flex; gap:16px;
+    }
+    .footer-legal a{
+      color:var(--gray-light);
+    }
+    .footer-legal a:hover{
+      color:var(--primary);
+    }
+    .footer-logo{
+      width:28px; height:28px; display:block; border-radius:8px;
+    }
+    
+    /* Mobile menu styles */
+    .menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      padding: 8px;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: background .2s;
+    }
+    .menu-btn:hover { background: rgba(0,0,0,0.05); }
+    .menu-icon { width: 24px; height: 24px; }
+    
+    .menu-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 998;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .3s, visibility .3s;
+    }
+    .menu-overlay[aria-hidden="false"] {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .menu-sidebar {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 280px;
+      height: 100%;
+      background: white;
+      z-index: 999;
+      transform: translateX(100%);
+      transition: transform .3s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow-y: auto;
+      box-shadow: -4px 0 24px rgba(0,0,0,0.1);
+    }
+    .menu-sidebar[aria-hidden="false"] {
+      transform: translateX(0);
+    }
+    
+    .menu-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--line);
+    }
+    
+    .menu-close {
+      background: none;
+      border: none;
+      padding: 8px;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: background .2s;
+    }
+    .menu-close:hover { background: rgba(0,0,0,0.05); }
+    .menu-close svg { width: 20px; height: 20px; }
+    
+    .menu-nav {
+      padding: 20px;
+    }
+    .menu-nav a {
+      display: block;
+      padding: 12px 16px;
+      font-size: 16px;
+      font-weight: 500;
+      border-radius: 8px;
+      transition: background .2s;
+    }
+    .menu-nav a:hover {
+      background: rgba(0,0,0,0.05);
+    }
+    
+    .menu-cta {
+      padding: 0 20px 20px;
+    }
+    
+    .btn-block {
+      width: 100%;
+    }
+    
+    /* Mobile */
+    @media (max-width: 1024px) {
+      .container { padding: 0 20px; }
+      .hero { padding: 60px 0 40px; }
+      h1 { font-size: 42px; }
+      h2 { font-size: 30px; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .integrations-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    
+    @media (max-width: 768px){
+      .nav, .nav-cta { display: none !important; }
+      .menu-btn { display: block; }
+      h1{font-size:34px}
+      h2{font-size:28px}
+      .hero-grid, .product-grid, .trust-grid{
+        grid-template-columns:1fr; gap:32px;
+      }
+      .steps{grid-template-columns:1fr}
+      .stats-grid{grid-template-columns:1fr 1fr}
+      .quotes-grid{grid-template-columns:1fr}
+      .integrations-grid{grid-template-columns:repeat(3, 1fr)}
+      .footer-bottom{flex-direction:column; text-align:center; gap:12px;}
+      
+      /* Buttons */
+      .hero-cta {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+      }
+      .hero-cta .btn {
+        width: 100%;
+        justify-content: center;
+      }
+      .cta-buttons {
+        flex-direction: column;
+      }
+      .cta-buttons .btn {
+        width: 100%;
+      }
+      
+      /* Widget mock mobile */
+      .widget-mock {
+        max-width: 100%;
+      }
+      .google-badge {
+        top: -10px;
+        left: 16px;
+        padding: 3px 10px 3px 6px;
+      }
+      .google-badge img { height: 14px; }
+      
+      /* Footer */
+      .footer { padding: 32px 0; }
+      .footer-grid { 
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .footer-legal {
+        justify-content: center;
+      }
+      
+      /* Other mobile adjustments */
+      .eyebrow { font-size: 13px; }
+      .stat-value { font-size: 24px; }
+      .integration { padding: 12px; }
+      .integration-icon { width: 28px; height: 28px; }
+      .step-card { padding: 20px; }
+      .step-card b { font-size: 15px; }
+      details { padding: 14px 16px; }
+    }
+    @media (max-width: 480px) {
+      .container { padding: 0 16px; }
+      h1 { font-size: 28px; }
+      h2 { font-size: 24px; }
+      .integrations-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 769px){
+      .nav, .nav-cta{display:flex}
+    }
+    
+    /* Special scrolling + reveal */
+    .reveal{ opacity:0; transform:translateY(16px); transition:opacity .6s cubic-bezier(.2,.65,.2,1), transform .6s cubic-bezier(.2,.65,.2,1); will-change:opacity, transform; }
+    .reveal.in{ opacity:1; transform:none; }
+    .logos-track-wrap:hover .logos-track{ animation-play-state: paused; }
+  </style>
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "AutomateMeetings",
+    "url": "https://automatemeetings.com/",
+    "logo": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%230F766E'/%3E%3Cstop offset='1' stop-color='%230b5e58'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='url(%23g)'/%3E%3Cpath d='M16 32L24 16l8 16' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Cpath d='M16 32V20M32 32V20' stroke='white' stroke-width='3.2' stroke-linecap='round'/%3E%3Ccircle cx='34' cy='14' r='3' fill='%23f59e0b'/%3E%3C/svg%3E",
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "email": "sales@automatemeetings.com",
+      "contactType": "sales"
+    }]
+  }
+  </script>
+</head>
+<body>
+  <!-- Brand mark sprite -->
+  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="am-mark" viewBox="0 0 48 48">
+      <defs>
+        <linearGradient id="amg" x1="0" y1="0" x2="1" y2="1">
+          <stop stop-color="#0F766E"/>
+          <stop offset="1" stop-color="#0b5e58"/>
+        </linearGradient>
+      </defs>
+      <rect width="48" height="48" rx="12" fill="url(#amg)" shape-rendering="crispEdges"/>
+      <!-- AM monogram: institutional, abstract; no checkmark. -->
+      <path d="M16 32L24 16l8 16" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" fill="none" shape-rendering="geometricPrecision"/>
+      <path d="M16 32V20M32 32V20" stroke="#fff" stroke-width="3.2" stroke-linecap="round" shape-rendering="geometricPrecision"/>
+      <circle cx="34" cy="14" r="3" fill="#f59e0b" shape-rendering="geometricPrecision"/>
+    </symbol>
+  </svg>
+  <div class="decor" aria-hidden="true">
+    <div class="decor-circle-1"></div>
+    <div class="decor-circle-2"></div>
+  </div>
+  
+  <div id="navbar"></div>
+
+  <section id="home" class="section hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow"><span class="dot"></span> Always‑on AI SDR agent</span>
+        <h1>Your AI SDR agent for <span class="text-blue">non‑stop pipeline</span></h1>
+        <p class="lead">Engage, qualify and convert every inbound buyer via chat and email without adding headcount. Scale pipeline at any hour.</p>
+        <div class="hero-cta">
+          <button class="btn btn-primary" data-testid="cta-hero" data-cal-link="kunalbhatia/15min" data-cal-namespace="15min" data-cal-config='{"layout":"month_view"}'>
+            Talk to sales
+            <svg class="icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+          </button>
+          <button class="btn btn-secondary" aria-label="Book a demo" data-cal-link="kunalbhatia/15min" data-cal-namespace="15min" data-cal-config='{"layout":"month_view"}'>Book demo</button>
+        </div>
+        <ul class="features-list" aria-label="Key features">
+          <li><span class="dot" aria-hidden="true"></span> 24/7 coverage no leads missed</li>
+          <li><span class="dot" aria-hidden="true"></span> Qualifies by your ICP and rules</li>
+          <li><span class="dot" aria-hidden="true"></span> Works with any CRM and calendars</li>
+          <li><span class="dot" aria-hidden="true"></span> A/B experiments to lift conversions</li>
+        </ul>
+        <p class="note">Works with <strong>Google</strong> and <strong>Microsoft</strong> calendars and every major CRM. We manage the scheduling layer for you.</p>
+      </div>
+      <div class="widget-mock" aria-hidden="true">
+        <div class="google-badge">
+          <span>Backed by</span>
+          <img src="assets/images/Google_for_Startups_logo.svg" alt="Google for Startups" />
+        </div>
+        <div class="widget-inner">
+          <div class="widget-header">
+            <div class="widget-brand">
+              <svg class="widget-logo" aria-hidden="true"><use href="#am-mark"/></svg>
+              <div>
+                <div class="widget-title">AI SDR Engine</div>
+                <div class="widget-subtitle">Live on your site</div>
+              </div>
+            </div>
+            <span class="badge">Online</span>
+          </div>
+          <div class="chat-msg">
+            <svg class="icon chat-icon" style="color:var(--primary)" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 10h8m-8 4h6"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg>
+            <span class="chat-text">Hi there! What brings you here today?</span>
+          </div>
+          <div class="chat-msg">
+            <svg class="icon chat-icon" style="color:var(--primary)" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <span class="chat-text">This week: Tue 10:30 • Wed 11:00 • Thu 15:00 — or pick another time.</span>
+          </div>
+          <div class="chat-msg">
+            <svg class="icon chat-icon" style="color:var(--success)" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+            <span class="chat-text">Booked. Invite sent automatically with reminders.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="logos-strip" aria-label="Industries we support">
+    <div class="container logos-inner">
+      <span class="logos-label">Trusted by teams in</span>
+      <div class="logos-track-wrap">
+        <div class="logos-track">
+          <span class="industry-pill">FinTech</span>
+          <span class="industry-pill">SaaS</span>
+          <span class="industry-pill">Healthcare</span>
+          <span class="industry-pill">Cybersecurity</span>
+          <span class="industry-pill">Manufacturing</span>
+          <span class="industry-pill">Professional Services</span>
+          <span class="industry-pill">FinTech</span>
+          <span class="industry-pill">SaaS</span>
+          <span class="industry-pill">Healthcare</span>
+          <span class="industry-pill">Cybersecurity</span>
+          <span class="industry-pill">Manufacturing</span>
+          <span class="industry-pill">Professional Services</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="product" class="section">
+    <div class="container product-grid">
+      <div style="order:2">
+        <h2>Pipeline generation on autopilot.</h2>
+        <p class="text-muted">Buyers pick a time in chat or from email and get a calendar invite without leaving the page. Only qualified meetings go to sales; employees are routed elsewhere.</p>
+        <ul class="check-list">
+          <li>
+            <svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Show times first, collect email last
+          </li>
+          <li>
+            <svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Route across your team with buffers and reminders
+          </li>
+          <li>
+            <svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Structured data with UTMs and source
+          </li>
+          <li>
+            <svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Syncs with any CRM for seamless pipeline
+          </li>
+        </ul>
+      </div>
+      <div style="order:1">
+        <div class="browser-mock" aria-hidden="true">
+          <div class="browser-inner">
+            <div class="browser-bar">
+              <span class="browser-dot" style="background:var(--rose-400)"></span>
+              <span class="browser-dot" style="background:var(--amber-400)"></span>
+              <span class="browser-dot" style="background:var(--emerald-600)"></span>
+              <div class="browser-url">
+              </div>
+            </div>
+            <div class="browser-content">
+              <div class="chat-msg">
+                <svg class="icon chat-icon" style="color:var(--primary)" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 10h8m-8 4h6"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg>
+                <span class="chat-text">Hi there! What brings you here today?</span>
+              </div>
+              <div class="chat-msg">
+                <svg class="icon chat-icon" style="color:var(--primary)" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                <span class="chat-text">Slots this week: Tue 10:30 • Wed 11:00 • Thu 15:00 — or pick another time.</span>
+              </div>
+              <div class="chat-msg">
+                <svg class="icon chat-icon" style="color:var(--success)" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+                <span class="chat-text">Booked. Invite sent automatically with reminders.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" class="section" style="background:rgba(255,255,255,0.7); border-top:1px solid var(--line); border-bottom:1px solid var(--line)">
+    <div class="container">
+      <h2>How it works</h2>
+      <p class="section-desc">Four steps. No drama.</p>
+      <div class="steps">
+        <div class="step">
+          <b>1. Install</b>
+          <p>Drop a single script. Shadow DOM ensures styles stay isolated.</p>
+        </div>
+        <div class="step">
+          <b>2. Qualify</b>
+          <p>Detect buyer vs employee. Ask two smart questions, not twenty.</p>
+        </div>
+        <div class="step">
+          <b>3. Book</b>
+          <p>Show times first. Collect business email after they commit.</p>
+        </div>
+        <div class="step">
+          <b>4. Measure</b>
+          <p>Track view → engage → book → attend. Iterate weekly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="results" class="section">
+    <div class="container">
+      <div>
+        <h2>Outcomes you can expect</h2>
+        <p class="text-muted">Typical ranges based on similar deployments. We validate on your traffic and iterate weekly.</p>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-value">2–5%</div>
+            <div class="stat-label">Conversations started</div>
+            <div class="stat-note">of total traffic</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">20–40%</div>
+            <div class="stat-label">Chat → booked</div>
+            <div class="stat-note">see slots, pick time</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">70–85%</div>
+            <div class="stat-label">Booked → attended</div>
+            <div class="stat-note">with reminders</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">≤ 72h</div>
+            <div class="stat-label">Time-to-first meeting</div>
+            <div class="stat-note">after go-live</div>
+          </div>
+        </div>
+      </div>
+      <div class="quotes-grid">
+        <figure class="quote">
+          <blockquote class="quote-text">"We replaced forms with in-chat booking and cut our no-show rate in half within two weeks."</blockquote>
+          <figcaption class="quote-author">— VP Growth, B2B Fintech</figcaption>
+        </figure>
+        <figure class="quote">
+          <blockquote class="quote-text">"Clean data to the calendar and pipeline without a single back-and-forth email."</blockquote>
+          <figcaption class="quote-author">— Head of Sales Ops, SaaS</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="trust" class="section trust-section">
+    <div class="container trust-grid">
+      <div>
+        <h2>Built for reliability, privacy & scale</h2>
+        <ul class="trust-list">
+          <li><svg class="shield-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Least privilege access; remove us any time</li>
+          <li><svg class="shield-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>Compliant with GDPR and CCPA. SOC 2 in progress</li>
+          <li><svg class="shield-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Audit logs and data export on request</li>
+          <li><svg class="shield-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Encrypted data pipeline and real time monitoring</li>
+        </ul>
+      </div>
+      <div class="trust-stats">
+        <div class="trust-stat"><div class="trust-label">Uptime (90d)</div><div class="trust-value">99.96%</div><div class="progress-bar"><div class="progress-fill"></div></div></div>
+        <div class="trust-stat"><div class="trust-label">Median response</div><div class="trust-value">&lt; 2h</div><p style="margin-top:8px; font-size:14px; color:var(--slate-700)">12h for critical booking issues; 24–48h standard.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="integrations-title">
+    <div class="container">
+      <h2 id="integrations-title">Works seamlessly with your stack</h2>
+      <p class="text-muted">Works out of the box with your calendars, CRMs and tools. We handle the connection for you.</p>
+      <div class="integrations-grid">
+        <div class="integration"><img class="integration-icon" src="assets/images/google-calendar.png" alt="Google Calendar"/><div class="integration-name">Google Calendar</div></div>
+        <div class="integration"><img class="integration-icon" src="assets/images/office.png" alt="Microsoft 365"/><div class="integration-name">Microsoft 365</div></div>
+        <div class="integration"><img class="integration-icon" src="assets/images/zoom.png" alt="Zoom"/><div class="integration-name">Zoom</div></div>
+        <div class="integration"><img class="integration-icon" src="assets/images/meet.png" alt="Google Meet"/><div class="integration-name">Google Meet</div></div>
+        <div class="integration"><img class="integration-icon" src="assets/images/hubspot.png" alt="HubSpot"/><div class="integration-name">HubSpot</div></div>
+        <div class="integration"><img class="integration-icon" src="assets/images/salesforce.png" alt="Salesforce"/><div class="integration-name">Salesforce</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section cta-section">
+    <div class="container" style="max-width:800px">
+      <div id="demo" aria-hidden="true"></div>
+      <span class="pill">Ready to launch</span>
+      <h2>Start this week</h2>
+      <p class="section-desc">15-minute concierge setup. We drive. You click Allow. Launch in 3 days.</p>
+      <div class="cta-buttons">
+        <button class="btn btn-primary" data-testid="cta-footer" data-cal-link="kunalbhatia/15min" data-cal-namespace="15min" data-cal-config='{"layout":"month_view"}'>
+          Schedule a demo
+          <svg class="icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+        </button>
+        <button class="btn btn-secondary" aria-label="Try it now" data-cal-link="kunalbhatia/15min" data-cal-namespace="15min" data-cal-config='{"layout":"month_view"}'>Try it now</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="section">
+    <div class="container">
+      <h2>FAQs</h2>
+      <div class="faq" style="max-width:800px; margin:0 auto">
+        <details>
+          <summary><span style="margin-left: 8px;">Do we need engineers to launch?</span></summary>
+          <p>No. Paste one line of code. We handle routing, calendars, CRM integration, analytics and weekly tests.</p>
+        </details>
+        <details>
+          <summary><span style="margin-left: 8px;">Does this replace our forms?</span></summary>
+          <p>Forms can stay. Most teams add booking on high intent pages and keep forms for everything else. Our AI follows up via chat and email.</p>
+        </details>
+        <details>
+          <summary><span style="margin-left: 8px;">Which calendars do you support?</span></summary>
+          <p>Connect Google or Microsoft calendars once; we route across your team with buffers and reminders. We also sync with any CRM to keep data in one place.</p>
+        </details>
+        <details>
+          <summary><span style="margin-left: 8px;">Do you store PII?</span></summary>
+          <p>Only what is needed for scheduling and qualifying. Export on request. Compliant with GDPR and CCPA; SOC 2 in progress.</p>
+        </details>
+        <details>
+          <summary><span style="margin-left: 8px;">How do you optimise our pipeline?</span></summary>
+          <p>We run weekly experiments on scripts, prompts and routing to lift conversion rates and share analytics so you can see the impact.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer"></div>
+
+  <!-- Lightweight tests + scroll features -->
+  <script>
+    (function(){
+      const tests = [];
+      function test(name, fn){ try{ fn(); tests.push({name, pass:true}); } catch(e){ console.error(name+" — FAILED", e); tests.push({name, pass:false, err:e}); } }
+      function exists(sel){ const el = document.querySelector(sel); if(!el) throw new Error("Missing "+sel); }
+
+      // Smoke tests
+      test("sections-present", ()=>{ ['#home','#product','#how','#results','#trust','#faq','#contact'].forEach(exists); });
+      test("primary-cta-exists", ()=>{ const btn = document.querySelector('[data-testid="cta-footer"]'); if(!btn) throw new Error('no CTA button'); if(!btn.hasAttribute('data-cal-link')) throw new Error('CTA is not Cal.com button'); });
+      test("nav-links-work", ()=>{ document.querySelectorAll('nav a').forEach(a=>{ if(!/^#/.test(a.getAttribute('href'))) throw new Error('nav link not anchor'); }); });
+      test("logos-track-wrap-exists", ()=>{ exists('.logos-track-wrap'); });
+      // Extra sanity if(!/sales@automatemeetings\.com/.test(a.getAttribute('href'))) throw new Error('mailto not sales@automatemeetings.com'); }); if(!s || !/sales@automatemeetings\.com/.test(s.textContent)) throw new Error('JSON-LD email mismatch'); });
+
+
+      // Special scrolling features
+      const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // 1) Scroll reveal - COMMENTED OUT FOR SMOOTHER SCROLLING
+      // if(!reduceMotion && 'IntersectionObserver' in window){
+      //   const targets = document.querySelectorAll('.hero h1, .hero .lead, .hero .hero-cta, .widget-mock, #product h2, #product .text-muted, #product .check-list li, #product .browser-mock, #how .step-card, #results .stat-card, #results .quote, #trust h2, #trust .trust-list li, #trust .trust-stat, [aria-labelledby="integrations-title"] .integration, #contact h2, #contact p, #contact .cta-buttons, #faq .faq-card');
+      //   targets.forEach((el,i)=>{ el.classList.add('reveal'); el.style.transitionDelay = ((i%6)*60)+'ms'; });
+      //   const io = new IntersectionObserver((entries)=>{
+      //     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+      //   }, { rootMargin: '0px 0px -10% 0px', threshold: 0.12 });
+      //   targets.forEach(el=>io.observe(el));
+      // }
+      // (auto nav highlight removed per request)
+      // (scroll progress bar removed per request)
+      // smooth scrolling uses CSS only; no JS hijack
+
+
+      // Report
+      const passed = tests.filter(t=>t.pass).length; const total = tests.length;
+      console.log(`[AutomateMeetings] UI smoke tests: ${passed}/${total} passed`);
+    })();
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NB0R7DHD44"></script>
+  <script>
+    // Only load analytics on production (not localhost or file://)
+    if (window.location.hostname !== 'localhost' && 
+        window.location.hostname !== '127.0.0.1' && 
+        window.location.protocol !== 'file:') {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-NB0R7DHD44');
+    }
+  </script>
+  
+  <!-- Cal element-click embed code begins -->
+  <script type="text/javascript">
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+  Cal("init", "15min", {origin:"https://app.cal.com"});
+
+    // Configure modal with AutomateMeetings theme
+    Cal.ns["15min"]("ui", {
+      theme: "light",
+      hideEventTypeDetails: true,
+      layout: "month_view",
+      cssVarsPerTheme: {
+        light: {
+          // Brand colors
+          "cal-brand": "#0F766E", // teal-700
+          "cal-brand-emphasis": "#0b5e58", // teal-800
+          "cal-brand-subtle": "#f0fdfa", // teal-50
+          "cal-brand-text": "#ffffff",
+          
+          // Text colors
+          "cal-text": "#0F172A", // ink
+          "cal-text-emphasis": "#0F172A",
+          "cal-text-subtle": "#64748b", // slate-500
+          "cal-text-muted": "#94a3b8", // slate-400
+          "cal-text-inverted": "#ffffff",
+          
+          // Background colors
+          "cal-bg": "#ffffff",
+          "cal-bg-emphasis": "#F8F7F4", // ivory
+          "cal-bg-subtle": "#fafaf9", // light ivory
+          "cal-bg-muted": "#f5f5f4", // muted ivory
+          
+          // Border colors
+          "cal-border": "rgba(0,0,0,0.1)", // black-10
+          "cal-border-emphasis": "rgba(0,0,0,0.15)",
+          "cal-border-subtle": "rgba(0,0,0,0.05)", // black-5
+          "cal-border-booker": "rgba(0,0,0,0.1)",
+          "cal-border-booker-width": "1px",
+          
+          // Interactive elements
+          "cal-bg-primary": "#0F766E",
+          "cal-bg-primary-emphasis": "#0b5e58",
+          "cal-text-primary": "#ffffff",
+          
+          // Semantic colors
+          "cal-text-success": "#059669", // emerald-600
+          "cal-text-error": "#dc2626",
+          "cal-bg-success": "#dcfce7",
+          "cal-bg-error": "#fee2e2",
+          
+          // Typography & spacing
+          "cal-font-family": "Inter, -apple-system, system-ui, sans-serif",
+          "cal-radius": "12px",
+          "cal-radius-md": "12px",
+          "cal-radius-lg": "16px"
+        }
+      },
+      styles: {
+        body: { 
+          width: "100%", 
+          height: "100%", 
+          overflow: "scroll",
+          fontFamily: "Inter, -apple-system, system-ui, sans-serif"
+        }
+      }
+    });
+    </script>
+    <!-- Cal element-click embed code ends -->
+
+    <script>
+      window.AutomateMeetingsWidgetTheme = {
+        baseColor:'#0c5a54'
+          // gradient: 'linear-gradient(135deg, #0F766E, #14b8a6)',
+      };
+    </script>
+    <script src="http://localhost:8008/automatemeetings-widget-loader.js"></script>
+    <script src="https://automatemeetings-frontend-419472898266.us-central1.run.app/automatemeetings-widget-loader.js"></script>
+
+    
+  <!-- Centralized components and router -->
+  <script src="js/components.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/analytics.js"></script>
+</body>
+</html>

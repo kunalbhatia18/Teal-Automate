@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Terms of Service — AutomateMeetings</title>
+  <meta name="description" content="Terms of Service governing your use of AutomateMeetings." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%230F766E'/%3E%3Cstop offset='1' stop-color='%230b5e58'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='url(%23g)'/%3E%3Cpath d='M16 32L24 16l8 16' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Cpath d='M16 32V20M32 32V20' stroke='white' stroke-width='3.2' stroke-linecap='round'/%3E%3Ccircle cx='34' cy='14' r='3' fill='%23f59e0b'/%3E%3C/svg%3E" />
+  <meta name="theme-color" content="#FBF8F3">
+  
+  <!-- SEO Meta Tags -->
+  <link rel="canonical" href="https://automatemeetings.com/terms" />
+  <meta property="og:title" content="Terms of Service — AutomateMeetings" />
+  <meta property="og:description" content="Terms of Service governing your use of AutomateMeetings." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://automatemeetings.com/og-image.svg" />
+  <meta property="og:url" content="https://automatemeetings.com/terms" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Terms of Service — AutomateMeetings" />
+  <meta name="twitter:description" content="Terms of Service governing your use of AutomateMeetings." />
+  <meta name="twitter:image" content="https://automatemeetings.com/og-image.svg" />
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NB0R7DHD44"></script>
+  <script>
+    // Only load analytics on production (not localhost or file://)
+    if (window.location.hostname !== 'localhost' && 
+        window.location.hostname !== '127.0.0.1' && 
+        window.location.protocol !== 'file:') {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-NB0R7DHD44');
+    }
+  </script>
+  
+  <style>
+    :root{
+      /* Warm + trustworthy palette */
+      --bg: #FBF8F3;          /* warm ivory */
+      --surface: #FFFFFF;     /* cards */
+      --ink: #0F172A;         /* navy/ink */
+      --muted: #475569;       /* slate */
+      --primary: #0F766E;     /* teal 700 (trust) */
+      --primary-dark: #0b5e58;
+      --accent: #F59E0B;      /* amber 500 (warmth) */
+      --line: #E5E7EB;        /* soft borders */
+      --success: #059669;     /* signal green */
+      --teal-50: #f0fdfa;
+      --gray-light: #6B7280;
+      --gray-lighter: #9CA3AF;
+      --rose-400: #fb7185;
+      --amber-400: #fbbf24;
+      --emerald-600: #059669;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; 
+      font-family: Inter, system-ui, -apple-system, sans-serif;
+      color:var(--ink); 
+      background:var(--bg);
+      -webkit-font-smoothing:antialiased;
+    }
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; height:auto; display:block}
+    
+    /* Decorative background */
+    .decor{
+      position:fixed; inset:0; z-index:-1;
+      pointer-events:none; overflow:hidden;
+    }
+    .decor-circle-1{
+      position:absolute; top:-96px; left:-96px;
+      width:288px; height:288px; border-radius:50%;
+      background:rgba(20,184,166,0.3); filter:blur(60px);
+    }
+    .decor-circle-2{
+      position:absolute; bottom:-96px; right:-96px;
+      width:288px; height:288px; border-radius:50%;
+      background:rgba(245,158,11,0.4); filter:blur(60px);
+    }
+    
+    /* Layout */
+    .container{max-width:1280px; margin:0 auto; padding:0 24px}
+    .content-container{max-width:900px;margin:0 auto;padding:32px 24px}
+    
+    /* Header */
+    .header{ 
+      position:sticky; top:0; z-index:40;
+      backdrop-filter:saturate(140%) blur(10px);
+      background:rgba(251,248,243,0.7);
+      border-bottom:1px solid rgba(229,231,235,0.6);
+    }
+    .header-inner{ 
+      display:flex; align-items:center; justify-content:space-between;
+      height:72px;
+    }
+    .logo{
+      display:flex; align-items:center; gap:8px;
+    }
+    .logo-icon{
+      width:32px; height:32px; border-radius:12px;
+      display:block; box-shadow:0 1px 3px rgba(0,0,0,0.12);
+    }
+    .logo-text{
+      font-family:Manrope, Inter; font-weight:700;
+      font-size:18px; letter-spacing:0.2px;
+    }
+    .nav{
+      display:none; align-items:center; gap:28px;
+    }
+    .nav a{
+      color:var(--muted); font-weight:500; font-size:14px;
+    }
+    .nav a:hover{
+      color:var(--primary);
+    }
+    .nav-cta{
+      display:flex; gap:12px; align-items:center;
+    }
+    
+    /* Buttons */
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:8px; padding:12px 16px; border-radius:12px;
+      font-weight:600; font-size:14px; transition:all .2s;
+      cursor:pointer; border:none;
+    }
+    .btn-primary{
+      background:var(--primary); color:white;
+      box-shadow:0 4px 12px rgba(15,118,110,0.15);
+    }
+    .btn-primary:hover{
+      background:var(--primary-dark);
+      transform:translateY(-1px);
+    }
+    .btn:active{
+      transform:translateY(0);
+    }
+    .btn-secondary{
+      background:transparent; color:var(--ink);
+      border:1px solid var(--line);
+    }
+    .btn-secondary:hover{
+      background:rgba(0,0,0,0.05);
+      box-shadow:0 2px 8px rgba(0,0,0,0.06);
+    }
+    .btn-ghost{
+      background:transparent; color:var(--ink);
+      border:1px solid var(--line);
+    }
+    .btn-ghost:hover{
+      background:white;
+      box-shadow:0 2px 8px rgba(0,0,0,0.06);
+    }
+    .icon-sm{width:16px;height:16px}
+    
+    /* Mobile menu styles */
+    .menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      padding: 8px;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: background .2s;
+    }
+    .menu-btn:hover { background: rgba(0,0,0,0.05); }
+    .menu-icon { width: 24px; height: 24px; }
+
+    .menu-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 998;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .3s, visibility .3s;
+    }
+    .menu-overlay[aria-hidden="false"] {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .menu-sidebar {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 280px;
+      height: 100%;
+      background: white;
+      z-index: 999;
+      transform: translateX(100%);
+      transition: transform .3s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow-y: auto;
+      box-shadow: -4px 0 24px rgba(0,0,0,0.1);
+    }
+    .menu-sidebar[aria-hidden="false"] {
+      transform: translateX(0);
+    }
+
+    .menu-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .menu-close {
+      background: none;
+      border: none;
+      padding: 8px;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: background .2s;
+    }
+    .menu-close:hover { background: rgba(0,0,0,0.05); }
+    .menu-close svg { width: 20px; height: 20px; }
+
+    .menu-nav {
+      padding: 20px;
+    }
+    .menu-nav a {
+      display: block;
+      padding: 12px 16px;
+      font-size: 16px;
+      font-weight: 500;
+      border-radius: 8px;
+      transition: background .2s;
+    }
+    .menu-nav a:hover {
+      background: rgba(0,0,0,0.05);
+    }
+
+    .menu-cta {
+      padding: 0 20px 20px;
+    }
+
+    .btn-block {
+      width: 100%;
+    }
+    
+    /* Content */
+    .section{padding:40px 0} 
+    h1{font-family:Manrope, Inter; font-size:36px;margin:8px 0 12px;letter-spacing:-0.02em}
+    h2{font-size:22px;margin:28px 0 12px} 
+    p,li{color:var(--muted);line-height:1.7}
+    .card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+    .muted{color:var(--gray-light);font-size:14px} 
+    .pill{display:inline-block;background:rgba(15,118,110,.1);color:var(--primary);padding:2px 8px;border-radius:999px;font-size:12px;margin-left:8px}
+    ol{padding-left:18px}
+    
+    /* Footer */
+    .footer{border-top:1px solid var(--line);background:rgba(255,255,255,0.6);padding:40px 0}
+    .footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-bottom:32px}
+    .footer-section h4{font-size:14px;font-weight:600;margin:0 0 12px}
+    .footer-links{list-style:none;padding:0;margin:0}
+    .footer-links li{margin-bottom:8px}
+    .footer-links a{font-size:14px;color:var(--muted)}
+    .footer-links a:hover{color:var(--primary)}
+    .footer-desc{font-size:14px;color:var(--muted);line-height:1.6;margin-top:12px}
+    .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid var(--line);font-size:12px;color:var(--gray-light)}
+    .footer-legal{display:flex;gap:16px}
+    .footer-legal a:hover{color:var(--primary)}
+    .footer-logo{width:28px;height:28px;display:block;border-radius:8px}
+    
+    /* Responsive breakpoints */
+    @media (max-width: 1024px) {
+      .content-container { padding: 32px 20px; }
+      h1 { font-size: 32px; }
+      h2 { font-size: 20px; }
+    }
+    
+    @media (max-width: 768px){
+      .nav, .nav-cta{display:none !important}
+      .menu-btn { display: block; }
+      
+      body { font-size: 15px; }
+      h1 { font-size: 28px; }
+      h2 { font-size: 18px; }
+      
+      .content-container { padding: 24px 24px; }
+      .section { padding: 32px 0; }
+      .card { padding: 20px; }
+      
+      .footer { padding: 32px 0; }
+      .footer-grid { 
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .footer-bottom { 
+        flex-direction: column; 
+        gap: 12px;
+        text-align: center;
+      }
+      .footer-legal {
+        justify-content: center;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      h1 { font-size: 24px; }
+      .pill { display: block; margin: 8px 0 0 0; font-size: 11px; }
+      .content-container { padding: 20px 20px; }
+    }
+    
+    @media (min-width: 769px){
+      .nav{display:flex}
+    }
+  </style>
+</head>
+<body>
+  <!-- Brand mark sprite -->
+  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="am-mark" viewBox="0 0 48 48">
+      <defs>
+        <linearGradient id="amg" x1="0" y1="0" x2="1" y2="1">
+          <stop stop-color="#0F766E"/>
+          <stop offset="1" stop-color="#0b5e58"/>
+        </linearGradient>
+      </defs>
+      <rect width="48" height="48" rx="12" fill="url(#amg)" shape-rendering="crispEdges"/>
+      <!-- AM monogram: institutional, abstract; no checkmark. -->
+      <path d="M16 32L24 16l8 16" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" fill="none" shape-rendering="geometricPrecision"/>
+      <path d="M16 32V20M32 32V20" stroke="#fff" stroke-width="3.2" stroke-linecap="round" shape-rendering="geometricPrecision"/>
+      <circle cx="34" cy="14" r="3" fill="#f59e0b" shape-rendering="geometricPrecision"/>
+    </symbol>
+  </svg>
+  
+  <!-- Decorative background -->
+  <div class="decor">
+    <div class="decor-circle-1"></div>
+    <div class="decor-circle-2"></div>
+  </div>
+  
+  <div id="navbar"></div>
+  
+  <main class="content-container section">
+    <header>
+      <h1>Terms of Service <span class="pill">Last updated: August 10, 2025</span></h1>
+      <p class="muted">These Terms govern your access to and use of AutomateMeetings' products and services. By signing an Order Form or using the services, you agree to these Terms.</p>
+    </header>
+
+    <section class="card">
+      <h2>1. Definitions</h2>
+      <p><strong>"Services"</strong> means our AI SDR widget, booking, analytics, and related implementation and support. <strong>"Client"</strong> is the organization purchasing the Services. <strong>"Order Form"</strong> or <strong>"SOW"</strong> sets plan, fees, term, and any specifics (including QAM targets). <strong>"QAM"</strong> means a qualified, attended meeting booked via the widget, using a business email, matching the agreed role/geo criteria.</p>
+    </section>
+
+    <section class="card">
+      <h2>2. Services & Implementation</h2>
+      <ul>
+        <li>We provide a one-line script (Shadow DOM) to install the widget. We manage Cal.com team event configuration (round-robin, buffers, reminders) and associated API calls.</li>
+        <li>We host the Services on GCP and maintain analytics on Supabase.</li>
+        <li>We implement employee deflection and buyer routing as configured with you.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>3. Client Responsibilities</h2>
+      <ul>
+        <li>Provide timely access to calendars and admin privileges required for setup.</li>
+        <li>Define qualification criteria (roles, geos, email domains) and no-show policies.</li>
+        <li>Use the Services in compliance with laws and these Terms; do not misuse or attempt to reverse-engineer the Services.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>4. Fees & Payment</h2>
+      <ul>
+        <li>Fees are set out in the Order Form (e.g., setup sprint, monthly retainer, and any QAM overages). Unless stated otherwise, fees are invoiced upfront and are non-refundable.</li>
+        <li>Prices exclude taxes. Late amounts may incur reasonable late fees or interest as permitted by law.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>5. Sprint Guarantee</h2>
+      <p>During the initial 30-day setup sprint, we target a minimum of <strong>5 QAM</strong>. If this goal is not met, we will either extend the sprint by 30 days at no additional charge or apply a service credit to the next month, as specified in the Order Form. The guarantee applies if prerequisites are met (install live on agreed pages, calendars connected, qualification criteria provided, and reasonable meeting availability).</p>
+    </section>
+
+    <section class="card">
+      <h2>6. QAM Accounting</h2>
+      <ul>
+        <li>A meeting counts as QAM when booked via the widget, attended, uses a business email, and matches agreed role/geo.</li>
+        <li>Reschedules within the period count once. No-shows do not count as QAM.</li>
+        <li>Included QAMs and overage rates (if any) are defined in the Order Form.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>7. Integrations & Third-Party Services</h2>
+      <p>We integrate with calendars/meeting tools and CRMs using our integration layer and the Cal.com API. Your use of third-party services (e.g., Cal.com, Google/Microsoft calendars, CRM platforms) is subject to their terms. We are not responsible for third-party outages or changes, but we will make commercially reasonable efforts to adapt the Services.</p>
+    </section>
+
+    <section class="card">
+      <h2>8. Data Protection</h2>
+      <p>Each party will comply with applicable privacy laws. We act as a processor of personal data we handle on your behalf. Our <a href="privacy.html">Privacy Policy</a> describes data handling. A Data Processing Addendum (DPA) is available upon request.</p>
+    </section>
+
+    <section class="card">
+      <h2>9. Security</h2>
+      <p>We maintain administrative, physical, and technical safeguards appropriate to the nature of the data. See our <a href="../index.html#trust">Security & Trust</a> section for an overview.</p>
+    </section>
+
+    <section class="card">
+      <h2>10. Intellectual Property</h2>
+      <p>We own all right, title, and interest in the Services, including software, models, and workflows. You own your data. Grant us a limited license to process your data to provide the Services.</p>
+    </section>
+
+    <section class="card">
+      <h2>11. Confidentiality</h2>
+      <p>Each party will protect the other's non-public information using reasonable care and use it only for the relationship. This survives termination.</p>
+    </section>
+
+    <section class="card">
+      <h2>12. Warranties & Disclaimers</h2>
+      <p>We warrant we will provide the Services in a professional and workmanlike manner. Except as expressly stated, the Services are provided "as is." We disclaim all implied warranties to the maximum extent permitted by law.</p>
+    </section>
+
+    <section class="card">
+      <h2>13. Limitation of Liability</h2>
+      <p>To the fullest extent permitted by law: (a) neither party is liable for indirect, incidental, special, or consequential damages; and (b) each party's aggregate liability arising out of these Terms will not exceed the amounts paid or payable by you to us in the 12 months preceding the claim.</p>
+    </section>
+
+    <section class="card">
+      <h2>14. Support & Service Levels</h2>
+      <p>We aim for at least 99.9% monthly platform availability excluding scheduled maintenance and third-party outages. Support targets: under 2 hours median for urgent booking issues; 24–48 hours for standard tickets.</p>
+    </section>
+
+    <section class="card">
+      <h2>15. Term, Suspension & Termination</h2>
+      <ul>
+        <li>These Terms start when you first use the Services or sign an Order Form and continue for the term stated there.</li>
+        <li>Either party may terminate for material breach if uncured within 15 days after notice. We may suspend for non-payment, security risks, or misuse.</li>
+        <li>Upon termination, we will disable access and, upon request, export or delete your data within a reasonable period.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>16. Publicity</h2>
+      <p>With your consent, we may use your name and logo to identify you as a customer. You can revoke consent at any time by written notice.</p>
+    </section>
+
+    <section class="card">
+      <h2>17. Governing Law; Disputes</h2>
+      <p>These Terms are governed by the laws of <strong>Karnataka, India</strong>, and the courts in Bengaluru have exclusive jurisdiction. (If you prefer US law for a given customer, the Order Form may specify Delaware law and venue.)</p>
+    </section>
+
+    <section class="card">
+      <h2>18. Changes</h2>
+      <p>We may update these Terms from time to time. If changes are material, we will provide notice. Continued use after the effective date constitutes acceptance.</p>
+    </section>
+
+    <section class="card">
+      <h2>19. Contact</h2>
+      <p>Legal or contractual questions: <a href="mailto:kunal@automatemeetings.com">kunal@automatemeetings.com</a></p>
+    </section>
+
+  </main>
+  
+  <div id="footer"></div>
+  
+  <!-- Cal element-click embed code begins -->
+  <script type="text/javascript">
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+  Cal("init", "15min", {origin:"https://app.cal.com"});
+  
+  Cal.ns["15min"]("ui", {
+    theme: "light",
+    hideEventTypeDetails: true,
+    layout: "month_view",
+    cssVarsPerTheme: {
+      light: {
+        "cal-brand": "#0F766E",
+        "cal-text": "#0F172A",
+        "cal-bg": "#ffffff",
+        "cal-bg-emphasis": "#FBF8F3",
+        "cal-border": "rgba(0,0,0,0.10)",
+        "cal-font-family": "Inter, -apple-system, system-ui, sans-serif"
+      }
+    }
+  });
+  </script>
+  <!-- Cal element-click embed code ends -->
+  
+  <!-- Centralized components and router -->
+  <script src="../js/components.js"></script>
+  <script src="../js/router.js"></script>
+</body>
+</html>
