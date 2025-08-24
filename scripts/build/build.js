@@ -115,6 +115,14 @@ async function processHTML(jsFile, cssFiles) {
       content = content.replace(/href="\.\.\/index\.html/g, 'href="index.html');
     }
     
+    // Special handling for 404.html - use absolute paths since it serves at any depth
+    if (file.dest === '404.html') {
+      content = content.replace(/href="([^"]*\.css)"/g, 'href="/$1"');
+      content = content.replace(/src="([^"]*\.js)"/g, 'src="/$1"');
+      content = content.replace(/href="\.\.\/index\.html"/g, 'href="/"');
+      content = content.replace(/href="index\.html"/g, 'href="/"');
+    }
+    
     await fs.writeFile(path.join(DIST_DIR, file.dest), content);
     console.log(`✅ Processed ${file.dest}${specificCssFile ? ' with ' + specificCssFile : ''}`);
   }
@@ -196,15 +204,27 @@ async function createCleanUrls() {
     
     // Skip path fixing for visithealth
     if (!skipProcessing) {
-      // Fix paths for being one directory deeper
-      content = content.replace(/href="([^"]*\.css)"/g, 'href="../$1"');
-      content = content.replace(/src="([^"]*\.js)"/g, 'src="../$1"');
-      content = content.replace(/href="index\.html/g, 'href="../index.html');
-      content = content.replace(/href="\/"/g, 'href="../"');
-      
-      // Fix component script references
-      content = content.replace(/<script src="\.\.\/components\.js"><\/script>/, '');
-      content = content.replace(/<script src="\.\.\/router\.js"><\/script>/, '');
+      if (file === '404.html') {
+        // For 404 page, use absolute paths since it needs to work at any depth
+        content = content.replace(/href="([^"]*\.css)"/g, 'href="/$1"');
+        content = content.replace(/src="([^"]*\.js)"/g, 'src="/$1"');
+        content = content.replace(/href="index\.html/g, 'href="/"');
+        content = content.replace(/href="\.\.\/index\.html/g, 'href="/"');
+        
+        // Fix component script references to absolute paths
+        content = content.replace(/<script src="\.\.\/js\/components\.js"><\/script>/, '<script src="/js/components.js"></script>');
+        content = content.replace(/<script src="\.\.\/js\/router\.js"><\/script>/, '<script src="/js/router.js"></script>');
+      } else {
+        // Fix paths for being one directory deeper
+        content = content.replace(/href="([^"]*\.css)"/g, 'href="../$1"');
+        content = content.replace(/src="([^"]*\.js)"/g, 'src="../$1"');
+        content = content.replace(/href="index\.html/g, 'href="../index.html');
+        content = content.replace(/href="\/"/g, 'href="../"');
+        
+        // Fix component script references
+        content = content.replace(/<script src="\.\.\/js\/components\.js"><\/script>/, '');
+        content = content.replace(/<script src="\.\.\/js\/router\.js"><\/script>/, '');
+      }
     }
     
     // Write the modified content

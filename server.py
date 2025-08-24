@@ -10,6 +10,18 @@ class SPAHandler(http.server.SimpleHTTPRequestHandler):
         parsed_path = urllib.parse.urlparse(self.path)
         path = parsed_path.path
         
+        # Check if it's a static file (CSS, JS, images, etc.)
+        if path.endswith(('.css', '.js', '.png', '.jpg', '.jpeg', '.gif', '.svg', '.ico', '.woff', '.woff2', '.ttf', '.xml', '.txt')):
+            # For static files, serve directly if they exist in the root
+            file_path = os.path.join(os.getcwd(), path.lstrip('/'))
+            if os.path.exists(file_path):
+                super().do_GET()
+                return
+            else:
+                # Static file not found, send 404
+                self.send_error(404, "File not found")
+                return
+        
         # Handle specific routes for static pages
         if path == '/privacy':
             self.path = '/privacy.html'
@@ -22,10 +34,10 @@ class SPAHandler(http.server.SimpleHTTPRequestHandler):
         elif path == '/visithealth/tree':
             self.path = '/visithealth/tree.html'
         else:
-            # Check if the requested file exists
+            # For HTML routes, check if the requested path exists
             file_path = os.path.join(os.getcwd(), path.lstrip('/'))
             if not os.path.exists(file_path) and not os.path.exists(file_path + '.html'):
-                # Serve 404 page for any unknown route
+                # Serve 404 page for any unknown HTML route
                 self.path = '/404.html'
         
         # Call the parent handler

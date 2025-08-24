@@ -7,16 +7,16 @@
     navbar: `
       <header class="header" role="banner">
         <div class="container header-inner">
-          <a href="./" class="logo" aria-label="AutomateMeetings home">
+          <a href="/" class="logo" aria-label="AutomateMeetings home">
             <svg class="logo-icon" aria-hidden="true"><use href="#am-mark"/></svg>
             <span class="logo-text">AutomateMeetings</span>
           </a>
           <nav class="nav" aria-label="Primary navigation">
-            <a href="./#product">Product</a>
-            <a href="./#how">How it works</a>
-            <a href="./#results">Results</a>
-            <a href="./#trust">Trust</a>
-            <a href="./#faq">FAQ</a>
+            <a href="/#product">Product</a>
+            <a href="/#how">How it works</a>
+            <a href="/#results">Results</a>
+            <a href="/#trust">Trust</a>
+            <a href="/#faq">FAQ</a>
           </nav>
           <div class="nav-cta">
             <button class="btn btn-secondary" aria-label="Book a demo" data-cal-link="kunalbhatia/15min" data-cal-namespace="15min" data-cal-config='{"layout":"month_view"}'>Book demo</button>
@@ -39,7 +39,7 @@
       <!-- Mobile menu sidebar -->
       <div class="menu-sidebar" aria-hidden="true">
         <div class="menu-header">
-          <a href="./" class="logo" aria-label="AutomateMeetings home">
+          <a href="/" class="logo" aria-label="AutomateMeetings home">
             <svg class="logo-icon" aria-hidden="true"><use href="#am-mark"/></svg>
             <span class="logo-text">AutomateMeetings</span>
           </a>
@@ -50,11 +50,11 @@
           </button>
         </div>
         <nav class="menu-nav">
-          <a href="./#product">Product</a>
-          <a href="./#how">How it works</a>
-          <a href="./#results">Results</a>
-          <a href="./#trust">Trust</a>
-          <a href="./#faq">FAQ</a>
+          <a href="/#product">Product</a>
+          <a href="/#how">How it works</a>
+          <a href="/#results">Results</a>
+          <a href="/#trust">Trust</a>
+          <a href="/#faq">FAQ</a>
         </nav>
         <div class="menu-cta">
           <button class="btn btn-primary btn-block" data-testid="cta-menu" data-cal-link="kunalbhatia/15min" data-cal-namespace="15min" data-cal-config='{"layout":"month_view"}'>
@@ -76,11 +76,11 @@
               </div>
               <p class="footer-desc">Convert more of your high-intent traffic into qualified, attended sales meetings.</p>
             </div>
-            <div class="footer-section"><h4>Product</h4><ul class="footer-links"><li><a href="./#product">AI SDR Engine</a></li><li><a href="./#how">How it works</a></li><li><a href="./#results">Outcomes</a></li></ul></div>
-            <div class="footer-section"><h4>Company</h4><ul class="footer-links"><li><a href="./#trust">Security & Trust</a></li><li><a href="./#faq">FAQ</a></li><li><a href="./#contact">Contact</a></li></ul></div>
+            <div class="footer-section"><h4>Product</h4><ul class="footer-links"><li><a href="/#product">AI SDR Engine</a></li><li><a href="/#how">How it works</a></li><li><a href="/#results">Outcomes</a></li></ul></div>
+            <div class="footer-section"><h4>Company</h4><ul class="footer-links"><li><a href="/#trust">Security & Trust</a></li><li><a href="/#faq">FAQ</a></li><li><a href="/#contact">Contact</a></li></ul></div>
             <div class="footer-section"><h4>Contact</h4><ul class="footer-links"><li><a href="mailto:sales@automatemeetings.com">sales@automatemeetings.com</a></li></ul></div>
           </div>
-          <div class="footer-bottom"><p id="copyright">© <span id="year"></span> AutomateMeetings. All rights reserved.</p><div class="footer-legal"><a href="privacy">Privacy</a><a href="terms">Terms</a><a href="./#trust">Security</a></div></div>
+          <div class="footer-bottom"><p id="copyright">© <span id="year"></span> AutomateMeetings. All rights reserved.</p><div class="footer-legal"><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/#trust">Security</a></div></div>
         </div>
       </footer>
     `
