@@ -224,9 +224,25 @@
     <!-- Visit Health Widget Theme -->
     <script>
         // Initialize widget theme
-        // window.VisitHealthWidgetTheme = {
-        //     baseColor: '#0F766E',    
-        // };
+        window.VisitHealthWidgetTheme = {
+            baseColor: '#0765FF',    
+        };
+
+        // Apply initial theme immediately and on load
+        updateWidgetTheme('#0765FF');
+        
+        window.addEventListener('load', function() {
+            updateWidgetTheme('#0765FF');
+            setTimeout(() => {
+                updateWidgetTheme('#0765FF');
+            }, 100);
+            setTimeout(() => {
+                updateWidgetTheme('#0765FF');
+            }, 500);
+            setTimeout(() => {
+                updateWidgetTheme('#0765FF');
+            }, 1000);
+        });
 
 
         // Enhanced color updater with error handling
