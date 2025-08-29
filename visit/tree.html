@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visit Health Conversation Tree</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            margin: 40px;
+            background: white;
+            color: #333;
+            font-size: 16px;
+            font-weight: 400;
+        }
+        
+        .tree {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 15px;
+            line-height: 1.8;
+            white-space: pre;
+            color: #2d3748;
+            font-weight: 400;
+        }
+        
+        .entry { color: #e53e3e; font-weight: bold; }
+        .option { color: #3182ce; font-weight: 400; }
+        .email { color: #38a169; font-weight: bold; }
+        .calendar { color: #805ad5; font-weight: bold; }
+        .success { color: #38a169; font-weight: bold; }
+        .deflect { color: #e53e3e; }
+        .dropdown { color: #d69e2e; font-weight: bold; }
+        .support { color: #ff6b35; font-weight: bold; }
+        .question { color: #d69e2e; font-weight: bold; }
+        .notification { color: #ff6b35; font-weight: bold; }
+        
+        strong {
+            font-weight: bold;
+        }
+        
+        h1 {
+            font-size: 28px;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 30px;
+        }
+        
+        .note {
+            background: #f7fafc;
+            border-left: 4px solid #4299e1;
+            padding: 12px 16px;
+            margin: 20px 0;
+            font-size: 14px;
+            color: #2d3748;
+        }
+    </style>
+</head>
+<body>
+    <h1>Visit Health Conversation Tree</h1>
+    
+    <div class="note">
+        <strong>Key Features:</strong> Support-first routing • 50+ employee threshold • India-focused • State-based sales routing • AI fallback for all states
+    </div>
+    
+    <div class="tree">
+<span class="entry">🚀 WELCOME & SEGMENTATION</span>
+"👋 Hi there! I'm the AI assistant for Visit Health.
+Are you exploring health benefits for your company, or here for help with an issue?"
+
+├── <span class="option">"Help with an issue"</span>
+│   └── <span class="support">SUPPORT_CHOICE</span>
+│       "I'll connect you with our support team right away.
+│       Would you prefer to email them or call directly?"
+│       
+│       ├── <span class="option">"Email"</span>
+│       │   └── <span class="support">SUPPORT_EMAIL</span>
+│       │       "Perfect! You can reach our support team at:
+│       │       📧 corporate@getvisitapp.com
+│       │       They typically respond within 2-4 hours during business hours.
+│       │       Feel free to reach out if you need any other assistance."
+│       │       └── <span class="success">✅ DEFLECTED TO SUPPORT</span>
+│       │
+│       └── <span class="option">"Call"</span>
+│           └── <span class="support">SUPPORT_CALL</span>
+│               "You can reach our support team at:
+│               📞 +91 9911668855 (Mon-Sat, 9 AM - 6 PM)
+│               They'll help you with claims, app access, or any other questions.
+│               Feel free to reach out if you need any other assistance."
+│               └── <span class="success">✅ DEFLECTED TO SUPPORT</span>
+│
+└── <span class="option">"Exploring benefits"</span>
+    └── <span class="entry">BENEFITS_INTRO</span>
+        "Great! We help companies provide OPD benefits that employees actually use.
+        Before I connect you to the right specialist, can I ask you a couple of quick questions? (takes ~30–40 seconds)"
+        
+        ├── <span class="option">"No, just want info"</span>
+        │   └── <span class="entry">INFO_REQUEST</span>
+        │       "No problem! Visit is for companies to provide cashless OPD benefits that employees love - 
+        │       covering doctor visits, diagnostics, medicines, and more at 10,000+ centers.
+        │       Ask me anything about how it works, integrations, pricing, or results. I'll keep it short."
+        │       
+        │       [AI responds to questions with relevant info]
+        │       
+        │       [Always show these options below responses:]
+        │       ├── <span class="option">"Schedule demo"</span> → QUALIFICATION_START
+        │       └── <span class="option">"Need support"</span> → SUPPORT_CHOICE
+        │
+        └── <span class="option">"Yes, sure"</span>
+            └── <span class="entry">QUALIFICATION_START</span>
+                "Perfect! First, how many employees does your company have?"
+                
+                ├── <span class="option">"Less than 50"</span>
+                │   └── <span class="deflect">BELOW_THRESHOLD</span>
+                │       "Thanks for your interest! We currently work with companies that have 50+ employees 
+                │       to ensure the best value and group benefits.
+                │       For smaller teams, we recommend checking back with us as you grow. 
+                │       Feel free to reach out at corporate@getvisitapp.com if you have any questions!"
+                │       └── <span class="success">✅ BELOW THRESHOLD - DEFLECTED</span>
+                │
+                └── <span class="option">"50-100" / "100-500" / "500-1000" / "1000+"</span>
+                    └── <span class="dropdown">LOCATION_CHECK</span>
+                        "Perfect! Where are your India operations located?"
+                        
+                        ├── <span class="dropdown">[Select from dropdown] (31 Indian states/UTs)</span>
+                        │   └── <span class="entry">B2B_PLAN_CHOICE</span>
+                        │       "Great! Are you looking to set up a new benefits plan or improve your current plan?"
+                        │       
+                        │       ├── <span class="option">"Set up new plan"</span>
+                        │       │   └── <span class="email">B2B_EMAIL_CAPTURE</span>
+                        │       │       "Perfect! Let's schedule a quick call to discuss your benefits needs.
+                        │       │       What's your business email for your calendar invite?"
+                        │       │       └── <span class="calendar">CALENDAR_BOOKING</span>
+                        │       │           "Thank you! Here's our calendar—pick any time that works for you:"
+                        │       │           [Calendar - State-specific Sales Team]
+                        │       │           └── <span class="success">✅ QUALIFIED LEAD - [STATE NAME]</span>
+                        │       │
+                        │       └── <span class="option">"Improve current plan"</span>
+                        │           └── <span class="email">B2B_EMAIL_CAPTURE</span>
+                        │               "Perfect! Let's schedule a quick call to discuss your benefits needs.
+                        │               What's your business email for your calendar invite?"
+                        │               └── <span class="calendar">CALENDAR_BOOKING</span>
+                        │                   "Thank you! Here's our calendar—pick any time that works for you:"
+                        │                   [Calendar - State-specific Sales Team]
+                        │                   └── <span class="success">✅ QUALIFIED LEAD - [STATE NAME]</span>
+                        │
+                        └── <span class="dropdown">"Not in India"</span>
+                            └── <span class="entry">NON_INDIA_CHECK</span>
+                                "We currently provide benefits for India-based employees. Do you have employees in India that you'd like to provide benefits for?"
+                                
+                                ├── <span class="option">"Yes"</span>
+                                │   └── LOCATION_CHECK (Go back to location selection)
+                                │
+                                └── <span class="option">"No"</span>
+                                    └── <span class="deflect">DEFLECTED_NON_INDIA</span>
+                                        "Thanks for your interest! We currently provide benefits only for employees based in India.
+                                        Feel free to reach out at corporate@getvisitapp.com if you expand operations to India!"
+                                        └── <span class="success">✅ NON-INDIA - DEFLECTED</span>
+
+<span class="question">🤖 AI FALLBACK HANDLERS</span>
+├── Support-related keywords (claim, login, app, password, reimbursement, etc.)
+│   → "It sounds like you need support. Would you prefer to email corporate@getvisitapp.com or call +91 9911668855?"
+│
+├── Sales/benefits keywords (pricing, coverage, demo, benefits, etc.)
+│   → "I can help with that! Are you exploring health benefits for your company?"
+│
+└── Ambiguous inputs
+    → "I'd be happy to help! Are you an existing member needing support, or exploring Visit Health for your company?"
+    </div>
+    
+    <div class="note">
+        <strong>Visit Health Focus:</strong> Employee wellness & OPD platform for companies with 50+ employees in India. Services include cashless OPD at 10,000+ centers covering doctor visits, diagnostics, medicines, and more. State-specific sales routing ensures local expertise.
+    </div>
+</body>
+</html>
