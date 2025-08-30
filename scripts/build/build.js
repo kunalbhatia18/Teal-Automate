@@ -42,7 +42,8 @@ async function bundleCSS() {
     { src: 'index.html', name: 'main' },
     { src: 'pages/privacy.html', name: 'privacy' },
     { src: 'pages/terms.html', name: 'terms' },
-    { src: 'pages/404.html', name: '404' }
+    { src: 'pages/404.html', name: '404' },
+    { src: 'pages/roi/index.html', name: 'roi' }
   ];
   
   for (const htmlFile of htmlFiles) {
@@ -72,8 +73,9 @@ async function processHTML(jsFile, cssFiles) {
     { src: 'pages/privacy.html', dest: 'privacy.html' },
     { src: 'pages/terms.html', dest: 'terms.html' },
     { src: 'pages/404.html', dest: '404.html' },
-    { src: 'pages/visithealth/index.html', dest: 'visithealth.html', skipProcessing: true },
-    { src: 'pages/visithealth/tree.html', dest: 'visithealth/tree.html', skipProcessing: true }
+    { src: 'pages/visit/index.html', dest: 'visit.html', skipProcessing: true },
+    { src: 'pages/visit/tree.html', dest: 'visit/tree.html', skipProcessing: true },
+    { src: 'pages/roi/index.html', dest: 'roi.html' }
   ];
   
   for (const file of htmlFiles) {
@@ -191,8 +193,9 @@ async function createCleanUrls() {
     { file: 'privacy.html', dir: 'privacy' },
     { file: 'terms.html', dir: 'terms' },
     { file: '404.html', dir: '404' },
-    { file: 'visithealth.html', dir: 'visithealth', skipProcessing: true },
-    { file: 'visithealth/tree.html', dir: 'visithealth/tree', skipProcessing: true }
+    { file: 'visit.html', dir: 'visit', skipProcessing: true },
+    { file: 'visit/tree.html', dir: 'visit/tree', skipProcessing: true },
+    { file: 'roi.html', dir: 'roi' }
   ];
   
   for (const { file, dir, skipProcessing } of cleanUrls) {
